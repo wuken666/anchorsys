@@ -1,0 +1,32 @@
+server:
+  port: 9087
+  servlet:
+    context-path: /anchorsys
+spring:
+  #json 时间戳统一转换
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  aop:
+    proxy-target-class: true
+  datasource:
+    username: root
+    password:
+    url: jdbc:mysql://localhost:3306/guitarsky_db?useSSL=false&useUnicode=true&characterEncoding=UTF8&serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix=: .html
+    servlet:
+      content-type: text/html
+    encoding: utf-8
+    mode: LEGACYHTML5
+    cache: false
+    mvc:
+      static-path-pattern: /**
+
+devtools:
+  restart:
+    enabled: true  #设置开启热部署
+    additional-paths: src/main/java #重启目录
+    exclude: WEB-INF/**
